@@ -11,14 +11,20 @@ protocol NoteListViewModelProtocol {
 
 final class NoteListViewModel: NoteListViewModelProtocol {
     
+    private let api: NotesAPIProtocol
+    
     var notes: [NoteRow] {
         return
             [
-                NoteRow(title: "Note 1", content: "Content 1"),
+                NoteRow(title: "Note 1", content: "Content 1Content 1Content 1Content 1Content 1Content 1Content 1Content 1"),
                 NoteRow(title: "Note 2", content: "Content 2"),
                 NoteRow(title: "Note 3", content: "Content 3"),
                 NoteRow(title: "Note 4", content: "Content 4"),
                 NoteRow(title: "Note 5", content: "Content 5"),
             ]
+    }
+    
+    init(api: NotesAPIProtocol = NotesAPI()) {
+        self.api = api
     }
 }
