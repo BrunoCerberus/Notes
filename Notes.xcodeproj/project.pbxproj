@@ -3,21 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1512D589265B24B500584F90 /* notes.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512D587265B24B500584F90 /* notes.pb.swift */; };
+		1512D58A265B24B500584F90 /* notes.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512D588265B24B500584F90 /* notes.grpc.swift */; };
 		151A0510265AE775001614BF /* NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A050F265AE775001614BF /* NotesApp.swift */; };
 		151A0512265AE775001614BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A0511265AE775001614BF /* ContentView.swift */; };
 		151A0514265AE775001614BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151A0513265AE775001614BF /* Assets.xcassets */; };
 		151A0517265AE775001614BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151A0516265AE775001614BF /* Preview Assets.xcassets */; };
 		151A0519265AE775001614BF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A0518265AE775001614BF /* Persistence.swift */; };
 		151A051C265AE775001614BF /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 151A051A265AE775001614BF /* Notes.xcdatamodeld */; };
-		15912ED4265AE91B0025D528 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 15912ED3265AE91B0025D528 /* GRPC */; };
-		15912ED6265AE91B0025D528 /* CGRPCZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 15912ED5265AE91B0025D528 /* CGRPCZlib */; };
+		15444736265B28B7002CEB50 /* NotesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15444735265B28B7002CEB50 /* NotesAPI.swift */; };
+		1544473A265B2B3D002CEB50 /* NoteRequestId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15444739265B2B3D002CEB50 /* NoteRequestId.swift */; };
+		1544473E265B2B72002CEB50 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544473D265B2B72002CEB50 /* Note.swift */; };
+		3A855EBC36C3FB12BF67CADD /* Pods_Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53AB69EAC15B835ED2D6BD8E /* Pods_Notes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1512D587265B24B500584F90 /* notes.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.pb.swift; sourceTree = "<group>"; };
+		1512D588265B24B500584F90 /* notes.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.grpc.swift; sourceTree = "<group>"; };
 		151A050C265AE775001614BF /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		151A050F265AE775001614BF /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
 		151A0511265AE775001614BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +32,12 @@
 		151A0518265AE775001614BF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		151A051B265AE775001614BF /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		151A051D265AE775001614BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15444735265B28B7002CEB50 /* NotesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesAPI.swift; sourceTree = "<group>"; };
+		15444739265B2B3D002CEB50 /* NoteRequestId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRequestId.swift; sourceTree = "<group>"; };
+		1544473D265B2B72002CEB50 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		53AB69EAC15B835ED2D6BD8E /* Pods_Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C1A100DBCE26E9CF027B34E /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
+		80D977E866F48C0FD8F524D3 /* Pods-Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.release.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,19 +45,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15912ED4265AE91B0025D528 /* GRPC in Frameworks */,
-				15912ED6265AE91B0025D528 /* CGRPCZlib in Frameworks */,
+				3A855EBC36C3FB12BF67CADD /* Pods_Notes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1512D585265B249D00584F90 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				15444735265B28B7002CEB50 /* NotesAPI.swift */,
+				15444738265B2B28002CEB50 /* Models */,
+				1512D586265B249D00584F90 /* Protos */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1512D586265B249D00584F90 /* Protos */ = {
+			isa = PBXGroup;
+			children = (
+				1512D588265B24B500584F90 /* notes.grpc.swift */,
+				1512D587265B24B500584F90 /* notes.pb.swift */,
+			);
+			path = Protos;
+			sourceTree = "<group>";
+		};
 		151A0503265AE775001614BF = {
 			isa = PBXGroup;
 			children = (
 				151A050E265AE775001614BF /* Notes */,
 				151A050D265AE775001614BF /* Products */,
+				15D655F8265B266F0088D954 /* Frameworks */,
+				4496C345F3C130C614D40090 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +98,8 @@
 				151A0518265AE775001614BF /* Persistence.swift */,
 				151A051D265AE775001614BF /* Info.plist */,
 				151A051A265AE775001614BF /* Notes.xcdatamodeld */,
+				1544473C265B2B64002CEB50 /* Models */,
+				1512D585265B249D00584F90 /* Network */,
 				151A0515265AE775001614BF /* Preview Content */,
 			);
 			path = Notes;
@@ -79,6 +113,39 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		15444738265B2B28002CEB50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15444739265B2B3D002CEB50 /* NoteRequestId.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1544473C265B2B64002CEB50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1544473D265B2B72002CEB50 /* Note.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		15D655F8265B266F0088D954 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53AB69EAC15B835ED2D6BD8E /* Pods_Notes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4496C345F3C130C614D40090 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C1A100DBCE26E9CF027B34E /* Pods-Notes.debug.xcconfig */,
+				80D977E866F48C0FD8F524D3 /* Pods-Notes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,19 +153,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 151A0520265AE775001614BF /* Build configuration list for PBXNativeTarget "Notes" */;
 			buildPhases = (
+				76A1A741B0F79DC5BEE84907 /* [CP] Check Pods Manifest.lock */,
 				151A0508265AE775001614BF /* Sources */,
 				151A0509265AE775001614BF /* Frameworks */,
 				151A050A265AE775001614BF /* Resources */,
+				5A20449695A58A4451325DC8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Notes;
-			packageProductDependencies = (
-				15912ED3265AE91B0025D528 /* GRPC */,
-				15912ED5265AE91B0025D528 /* CGRPCZlib */,
-			);
 			productName = Notes;
 			productReference = 151A050C265AE775001614BF /* Notes.app */;
 			productType = "com.apple.product-type.application";
@@ -126,9 +191,6 @@
 				Base,
 			);
 			mainGroup = 151A0503265AE775001614BF;
-			packageReferences = (
-				15912ED2265AE91B0025D528 /* XCRemoteSwiftPackageReference "grpc-swift" */,
-			);
 			productRefGroup = 151A050D265AE775001614BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,6 +212,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A20449695A58A4451325DC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Notes/Pods-Notes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Notes/Pods-Notes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Notes/Pods-Notes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76A1A741B0F79DC5BEE84907 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Notes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		151A0508265AE775001614BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,8 +261,13 @@
 			files = (
 				151A0519265AE775001614BF /* Persistence.swift in Sources */,
 				151A0512265AE775001614BF /* ContentView.swift in Sources */,
+				1544473A265B2B3D002CEB50 /* NoteRequestId.swift in Sources */,
+				1512D58A265B24B500584F90 /* notes.grpc.swift in Sources */,
 				151A0510265AE775001614BF /* NotesApp.swift in Sources */,
+				1544473E265B2B72002CEB50 /* Note.swift in Sources */,
+				1512D589265B24B500584F90 /* notes.pb.swift in Sources */,
 				151A051C265AE775001614BF /* Notes.xcdatamodeld in Sources */,
+				15444736265B28B7002CEB50 /* NotesAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +392,7 @@
 		};
 		151A0521265AE775001614BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C1A100DBCE26E9CF027B34E /* Pods-Notes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +415,7 @@
 		};
 		151A0522265AE775001614BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80D977E866F48C0FD8F524D3 /* Pods-Notes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -347,30 +458,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		15912ED2265AE91B0025D528 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/grpc/grpc-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		15912ED3265AE91B0025D528 /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 15912ED2265AE91B0025D528 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
-		15912ED5265AE91B0025D528 /* CGRPCZlib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 15912ED2265AE91B0025D528 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = CGRPCZlib;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		151A051A265AE775001614BF /* Notes.xcdatamodeld */ = {
