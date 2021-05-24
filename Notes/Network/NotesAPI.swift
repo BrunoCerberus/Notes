@@ -16,7 +16,7 @@ protocol NotesAPIProtocol {
 
 final class NotesAPI: NotesAPIProtocol {
     
-    private let client = NoteServiceServiceClient.init(address: "127.0.0.1:50051", secure: false)
+    private let client: NoteServiceServiceClient = NoteServiceServiceClient.init(address: "127.0.0.1:50051", secure: false)
     
     func getNotes(completion: @escaping([Note]?, CallResult?) -> Void) {
         _ = try? client.list(Empty(), completion: { (notes, result) in
