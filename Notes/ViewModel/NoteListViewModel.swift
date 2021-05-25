@@ -6,21 +6,21 @@
 //
 
 protocol NoteListViewModelProtocol {
-    var notes: [NoteRow] { get }
+    var notes: [Note] { get }
 }
 
 final class NoteListViewModel: NoteListViewModelProtocol {
     
     private let api: NotesAPIProtocol
     
-    var notes: [NoteRow] {
+    var notes: [Note] {
         return
             [
-                NoteRow(title: "Note 1", content: "Content 1Content 1Content 1Content 1Content 1Content 1Content 1Content 1"),
-                NoteRow(title: "Note 2", content: "Content 2"),
-                NoteRow(title: "Note 3", content: "Content 3"),
-                NoteRow(title: "Note 4", content: "Content 4"),
-                NoteRow(title: "Note 5", content: "Content 5"),
+                Note(title: "Note 1", content: "Content 1Content 1Content 1Content 1Content 1Content 1Content 1Content 1"),
+                Note(title: "Note 2", content: "Content 2"),
+                Note(title: "Note 3", content: "Content 3"),
+                Note(title: "Note 4", content: "Content 4"),
+                Note(title: "Note 5", content: "Content 5"),
             ]
     }
     

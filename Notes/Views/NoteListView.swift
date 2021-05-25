@@ -13,7 +13,7 @@ struct NoteListView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.notes) { note in
+            List(viewModel.notes, id: \.title) { note in
                 NoteRowView(note: note)
             }
             .navigationTitle("Notes")
@@ -21,10 +21,6 @@ struct NoteListView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
                         print("add button taped")
-                    }
-                    
-                    Button("Help") {
-                        print("Help tapped!")
                     }
                 }
             }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NoteRowView: View {
-    var note: NoteRow
+    var note: Note
     
     var body: some View {
         HStack {
