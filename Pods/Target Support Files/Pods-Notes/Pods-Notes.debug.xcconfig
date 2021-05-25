@@ -4,6 +4,7 @@ FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC/openssl_grpc.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftGRPC/SwiftGRPC.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftProtobuf/SwiftProtobuf.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core/grpc.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC/openssl_grpc.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/SwiftGRPC/SwiftGRPC.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/SwiftProtobuf/SwiftProtobuf.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core/grpc.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/SwiftGRPC" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/SwiftProtobuf" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core"
 OTHER_LDFLAGS = $(inherited) -l"c++" -l"z" -framework "SwiftGRPC" -framework "SwiftProtobuf" -framework "grpc" -framework "openssl_grpc"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
