@@ -5,26 +5,59 @@
 //  Created by bruno on 24/05/21.
 //
 
-protocol NoteListViewModelProtocol {
+import Foundation
+import SwiftUI
+
+protocol NoteListViewModelProtocol: ObservableObject {
     var notes: [Note] { get }
+    func listNotes(completion: (() -> Void)?)
 }
+
+extension NoteListViewModelProtocol {
+    var notes: [Note] {
+        get { [Note]() }
+    }
+    func listNotes(completion: (() -> Void)?) { }
+}
+
+struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
+    @ObservedObject var viewModel: T
+
+    var body: some View {
+        NavigationView {
+            List(viewModel.notes, id: \.title) { note in
+                NoteRowView(note: note)
+            }
+            .navigationTitle("Notes")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Add") {
+                        print("add button taped")
+                    }
+                }
+            }
+        }
+        .onAppear() {
+            viewModel.listNotes(completion: nil)
+        }
+    }
+}
+
 
 final class NoteListViewModel: NoteListViewModelProtocol {
     
-    private let api: NotesAPIProtocol
+    @Published var notes: [Note] = [Note]()
     
-    var notes: [Note] {
-        return
-            [
-                Note(title: "Note 1", content: "Content 1Content 1Content 1Content 1Content 1Content 1Content 1Content 1"),
-                Note(title: "Note 2", content: "Content 2"),
-                Note(title: "Note 3", content: "Content 3"),
-                Note(title: "Note 4", content: "Content 4"),
-                Note(title: "Note 5", content: "Content 5"),
-            ]
-    }
+    let api: NotesAPIProtocol
     
     init(api: NotesAPIProtocol = NotesAPI()) {
         self.api = api
+    }
+    
+    func listNotes(completion: (() -> Void)?) {
+        api.getNotes(completion: { [weak self] notes, result in
+            self?.notes = notes ?? []
+            completion?()
+        })
     }
 }

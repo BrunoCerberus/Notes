@@ -8,30 +8,14 @@
 import SwiftUI
 
 struct NoteListView: View {
-    
-    var viewModel: NoteListViewModelProtocol
-    
     var body: some View {
-        NavigationView {
-            List(viewModel.notes, id: \.title) { note in
-                NoteRowView(note: note)
-            }
-            .navigationTitle("Notes")
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
-                        print("add button taped")
-                    }
-                }
-            }
-        }
+        NoteListViewModelView(viewModel: NoteListViewModel())
     }
 }
 
 struct NoteListView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel: NoteListViewModelProtocol = NoteListViewModel()
-        NoteListView(viewModel: viewModel)
+        NoteListView()
             .preferredColorScheme(.dark)
     }
 }
