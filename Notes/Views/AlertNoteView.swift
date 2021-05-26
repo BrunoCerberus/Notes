@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AlertNoteView<Presenting, T>: View where Presenting: View {
+struct AlertNoteView<Presenting>: View where Presenting: View {
     
     @ObservedObject var viewModel: NoteListViewModel
     @Binding var isShowing: Bool
@@ -63,8 +63,6 @@ struct AlertNoteView<Presenting, T>: View where Presenting: View {
     }
 }
 
-extension AlertNoteView where T: NoteListViewModelProtocol {}
-
 extension View  {
     func textFieldAlert(isShowing: Binding<Bool>,
                         titleTextField: Binding<String>,
@@ -72,7 +70,7 @@ extension View  {
                         title: String,
                         contentTitle: String,
                         viewModel: NoteListViewModel) -> some View {
-        AlertNoteView<Self, Any>(viewModel: viewModel, isShowing: isShowing,
+        AlertNoteView(viewModel: viewModel, isShowing: isShowing,
                       titleTextField: titleTextField,
                       descriptionTextField: descriptionTextField,
                       presenting: self,
