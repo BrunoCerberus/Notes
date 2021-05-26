@@ -11,6 +11,7 @@ import SwiftUI
 protocol NoteListViewModelProtocol: ObservableObject {
     var notes: [Note] { get }
     func listNotes(completion: (() -> Void)?)
+    func save(note: Note, completion: (() -> Void)?)
 }
 
 extension NoteListViewModelProtocol {
@@ -33,6 +34,15 @@ final class NoteListViewModel: NoteListViewModelProtocol {
     func listNotes(completion: (() -> Void)?) {
         api.getNotes(completion: { [weak self] notes, result in
             self?.notes = notes ?? []
+            completion?()
+        })
+    }
+    
+    func save(note: Note, completion: (() -> Void)?) {
+        api.save(note: note, completion: { [weak self] note, result in
+            if let note: Note = note {
+                self?.notes.append(note)
+            }
             completion?()
         })
     }
