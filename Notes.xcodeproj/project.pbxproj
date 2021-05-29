@@ -10,7 +10,6 @@
 		1512D589265B24B500584F90 /* notes.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512D587265B24B500584F90 /* notes.pb.swift */; };
 		1512D58A265B24B500584F90 /* notes.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512D588265B24B500584F90 /* notes.grpc.swift */; };
 		151A0510265AE775001614BF /* NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A050F265AE775001614BF /* NotesApp.swift */; };
-		151A0512265AE775001614BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A0511265AE775001614BF /* ContentView.swift */; };
 		151A0514265AE775001614BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151A0513265AE775001614BF /* Assets.xcassets */; };
 		151A0517265AE775001614BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151A0516265AE775001614BF /* Preview Assets.xcassets */; };
 		151A0519265AE775001614BF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A0518265AE775001614BF /* Persistence.swift */; };
@@ -32,7 +31,6 @@
 		1512D588265B24B500584F90 /* notes.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.grpc.swift; sourceTree = "<group>"; };
 		151A050C265AE775001614BF /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		151A050F265AE775001614BF /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
-		151A0511265AE775001614BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		151A0513265AE775001614BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151A0516265AE775001614BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		151A0518265AE775001614BF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				151A050F265AE775001614BF /* NotesApp.swift */,
-				151A0511265AE775001614BF /* ContentView.swift */,
 				151A0513265AE775001614BF /* Assets.xcassets */,
 				151A0518265AE775001614BF /* Persistence.swift */,
 				151A051D265AE775001614BF /* Info.plist */,
@@ -294,7 +291,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				151A0519265AE775001614BF /* Persistence.swift in Sources */,
-				151A0512265AE775001614BF /* ContentView.swift in Sources */,
 				1557FA10265C6A1B0003344B /* NoteListView.swift in Sources */,
 				1557FA27265C972C0003344B /* PullToRefresh.swift in Sources */,
 				1544473A265B2B3D002CEB50 /* NoteRequestId.swift in Sources */,
