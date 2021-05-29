@@ -12,6 +12,7 @@ protocol NoteListViewModelProtocol: ObservableObject {
     var notes: [Note] { get }
     func listNotes(completion: (() -> Void)?)
     func save(note: Note, completion: (() -> Void)?)
+    func delete(at offsets: IndexSet, completion: (() -> Void)?)
 }
 
 extension NoteListViewModelProtocol {
@@ -42,6 +43,21 @@ final class NoteListViewModel: NoteListViewModelProtocol {
         api.save(note: note, completion: { [weak self] note, result in
             if let note: Note = note {
                 self?.notes.append(note)
+            }
+            completion?()
+        })
+    }
+    
+    func delete(at offsets: IndexSet, completion: (() -> Void)?) {
+        var selectedNote: Note = Note()
+        var selectedIndex: Int = 0
+        offsets.forEach { index in
+            selectedNote = notes[index]
+            selectedIndex = index
+        }
+        api.delete(noteId: selectedNote.id, completion: { [weak self] deleted in
+            if deleted {
+                self?.notes.remove(at: selectedIndex)
             }
             completion?()
         })

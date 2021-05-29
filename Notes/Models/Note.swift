@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Note: Identifiable {
+extension Note: Identifiable, Equatable {
     init(title: String, content: String) {
         self.title = title
         self.content = content

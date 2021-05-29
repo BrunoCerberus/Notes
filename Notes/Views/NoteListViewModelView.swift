@@ -20,8 +20,11 @@ struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
                     PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                         viewModel.listNotes(completion: nil)
                     }
-                    List(viewModel.notes, id: \.title) { note in
-                        NoteRowView(note: note)
+                    List {
+                        ForEach(viewModel.notes, id: \.title) { note in
+                            NoteRowView(note: note)
+                        }
+                        .onDelete(perform: delete(at:))
                     }
                     .navigationTitle("Notes")
                     .toolbar {
@@ -49,6 +52,10 @@ struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
         .onAppear() {
             viewModel.listNotes(completion: nil)
         }
+    }
+    
+    private func delete(at offsets: IndexSet) {
+        viewModel.delete(at: offsets, completion: nil)
     }
     
     private func safeCast(viewModel: T) -> NoteListViewModel {
