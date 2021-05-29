@@ -40,8 +40,6 @@ struct AlertNoteView<Presenting>: View where Presenting: View {
                     HStack {
                         Button(action: {
                             withAnimation {
-                                print("Note title: \(titleTextField)")
-                                print("Content: \(descriptionTextField)")
                                 let note: Note = Note(title: titleTextField, content: descriptionTextField)
                                 viewModel.save(note: note) {
                                     self.isShowing.toggle()
