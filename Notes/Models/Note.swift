@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-extension Note: Identifiable {
+extension Note {
     init(title: String, content: String) {
         self.title = title
         self.content = content

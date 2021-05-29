@@ -21,7 +21,7 @@ struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
                         viewModel.listNotes(completion: nil)
                     }
                     List {
-                        ForEach(viewModel.notes, id: \.title) { note in
+                        ForEach(viewModel.notes, id: \.id) { note in
                             NoteRowView(note: note)
                         }
                         .onDelete(perform: delete)
