@@ -47,7 +47,7 @@ struct AlertNoteView<Presenting>: View where Presenting: View {
                             }
                         }) {
                             Text("Save")
-                        }
+                        }.disabled(titleTextField.isEmpty || descriptionTextField.isEmpty)
                     }
                 }
                 .padding()
