@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import CoreData
 
-extension Note: Identifiable, Equatable {
+extension Note: Identifiable {
     init(title: String, content: String) {
         self.title = title
         self.content = content

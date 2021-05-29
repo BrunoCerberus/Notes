@@ -12,7 +12,7 @@ struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
     @State private var isShowingAlert: Bool = false
     @State private var titleAlertInput: String = ""
     @State private var contentAlertInput: String = ""
-
+    
     var body: some View {
         NavigationView {
             GeometryReader { geo in
@@ -24,7 +24,7 @@ struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
                         ForEach(viewModel.notes, id: \.title) { note in
                             NoteRowView(note: note)
                         }
-                        .onDelete(perform: delete(at:))
+                        .onDelete(perform: delete)
                     }
                     .navigationTitle("Notes")
                     .toolbar {
@@ -54,7 +54,7 @@ struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
         }
     }
     
-    private func delete(at offsets: IndexSet) {
+    private func delete(offsets: IndexSet) {
         viewModel.delete(at: offsets, completion: nil)
     }
     

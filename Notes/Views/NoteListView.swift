@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct NoteListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var body: some View {
-        NoteListViewModelView(viewModel: NoteListViewModel())
-    }
-}
-
-struct NoteListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NoteListView()
-            .preferredColorScheme(.dark)
+        NoteListViewModelView(viewModel: NoteListViewModel(viewContext: viewContext))
     }
 }
