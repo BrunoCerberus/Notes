@@ -31,11 +31,7 @@ struct AlertNoteView<Presenting>: View where Presenting: View {
                         .id(isShowing)
                         .foregroundColor(.black)
                         .onChange(of: titleTextField, perform: { newValue in
-                            let value = newValue.replacingOccurrences(
-                                of: "\\W", with: "", options: .regularExpression)
-                            if value != newValue {
-                                self.titleTextField = value
-                            }
+                            self.titleTextField = self.invalidateInput(newValue: newValue)
                         })
                     
                     Divider()
@@ -48,11 +44,7 @@ struct AlertNoteView<Presenting>: View where Presenting: View {
                         .id(isShowing)
                         .foregroundColor(.black)
                         .onChange(of: descriptionTextField, perform: { newValue in
-                            let value = newValue.replacingOccurrences(
-                                of: "\\W", with: "", options: .regularExpression)
-                            if value != newValue {
-                                self.descriptionTextField = value
-                            }
+                            self.descriptionTextField = self.invalidateInput(newValue: newValue)
                         })
                     
                     Divider()
@@ -78,6 +70,19 @@ struct AlertNoteView<Presenting>: View where Presenting: View {
                 .cornerRadius(10)
             }
         }
+    }
+    
+    private func invalidateInput(newValue: String) -> String {
+        if newValue.containsOnlyLettersAndWhitespace() {
+            return newValue
+        } else {
+            var value = newValue
+            value.removeLast()
+            if value != newValue {
+                return value
+            }
+        }
+        return ""
     }
 }
 
