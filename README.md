@@ -16,6 +16,9 @@ To install the project dependencies, use cocoapods `1.10.1` or later, then enter
 - [x] SwiftUI
 - [x] Core Data
 - [x] Swift Protocol Buffers Objects 
+- [x] Dependencies Manager (Cocoapods)
+- [x] High Order Function
+- [x] Pull-to-refresh
 
 ## Features
 - [x] Save Notes
