@@ -10,6 +10,8 @@ To install the project dependencies, use cocoapods `1.10.1` or later, then enter
 - iOS 14+
 - Swift 5.3.2
 - Cocoapods 1.10.1 or later
+- NVM 0.38.0 or later
+- Node 10
 
 ## Development Roadmap
 
