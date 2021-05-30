@@ -20,23 +20,43 @@ struct AlertNoteView<Presenting>: View where Presenting: View {
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             ZStack {
-                self.presenting
-                    .disabled(isShowing)
+                presenting.disabled(isShowing)
+                
                 VStack {
                     Text(title).foregroundColor(.blue)
+                    
                     TextField(titleTextField, text: $titleTextField)
                         .multilineTextAlignment(.center)
                         .lineLimit(1)
                         .id(isShowing)
                         .foregroundColor(.black)
+                        .onChange(of: titleTextField, perform: { newValue in
+                            let value = newValue.replacingOccurrences(
+                                of: "\\W", with: "", options: .regularExpression)
+                            if value != newValue {
+                                self.titleTextField = value
+                            }
+                        })
+                    
                     Divider()
+                    
                     Text(contentTitle).foregroundColor(.blue)
+                    
                     TextField(descriptionTextField, text: $descriptionTextField)
                         .multilineTextAlignment(.center)
                         .lineLimit(1)
                         .id(isShowing)
                         .foregroundColor(.black)
+                        .onChange(of: descriptionTextField, perform: { newValue in
+                            let value = newValue.replacingOccurrences(
+                                of: "\\W", with: "", options: .regularExpression)
+                            if value != newValue {
+                                self.descriptionTextField = value
+                            }
+                        })
+                    
                     Divider()
+                    
                     HStack {
                         Button(action: {
                             withAnimation {
