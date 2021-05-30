@@ -14,7 +14,8 @@ To install the project dependencies, use cocoapods `1.10.1` or later, then enter
 ## Development Roadmap
 
 - [x] SwiftUI
-- [x] Codable
+- [x] Core Data
+- [x] Swift Protocol Buffers Objects 
 
 ## Features
 - [x] Save Notes
