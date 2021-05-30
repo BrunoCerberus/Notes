@@ -11,6 +11,16 @@ To install the project dependencies, use cocoapods `1.10.1` or later, then enter
 - Swift 5.3.2
 - Cocoapods 1.10.1 or later
 
+## Development Roadmap
+
+- [x] SwiftUI
+- [x] Codable
+
+## Features
+- [x] Save Notes
+- [x] Fetch Notes
+- [x] Delete Notes  
+
 ## Dependencies used
 - gRPC Swift https://github.com/grpc/grpc-swift
 
