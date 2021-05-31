@@ -1,7 +1,7 @@
 # Notes
 I developed a simple Notes SwiftUI app conected with a local Node.js gRPC Microservice which is inside the project root (`node-grpc-server-note-crud`), to use it,
-you must install NVM and used Node.js 10 (`nvm use 10`), after that, enter the folder `node-grpc-server-note-crud` and type `npm install`, 
-when finishes, type `npm start` to execute the gRPC microservice. The is already configured to connect with this local microservice.
+you must install NVM and use Node.js 10 (`nvm use 10`), after that, enter the folder `node-grpc-server-note-crud` and type `npm install`, 
+when finishes, type `npm start` to execute the gRPC microservice. The app is already configured to connect with this local microservice.
 
 To install the project dependencies, use cocoapods `1.10.1` or later, then enter on the project root and type `pod install`.
 
