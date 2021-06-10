@@ -93,6 +93,7 @@ extension View  {
                         title: String,
                         contentTitle: String,
                         viewModel: NoteListViewModel) -> some View {
+
         AlertNoteView(viewModel: viewModel, isShowing: isShowing,
                       titleTextField: titleTextField,
                       descriptionTextField: descriptionTextField,

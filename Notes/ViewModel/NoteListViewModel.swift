@@ -11,16 +11,27 @@ import CoreData
 
 protocol NoteListViewModelProtocol: ObservableObject {
     var notes: [Note] { get }
+    var favoritesNotes: [Note] {
+        get
+    }
     func listNotes(completion: (() -> Void)?)
     func save(note: Note, completion: (() -> Void)?)
     func delete(at offsets: IndexSet, completion: (() -> Void)?)
+
+    func insert(note: Note)
 }
 
 extension NoteListViewModelProtocol {
     var notes: [Note] {
         get { [Note]() }
     }
+
+    var favoritesNotes: [Note] {
+        get { [Note]() }
+        
+    }
     func listNotes(completion: (() -> Void)?) { }
+    func insert(note: Note) { }
 }
 
 final class NoteListViewModel: NoteListViewModelProtocol {
@@ -28,12 +39,20 @@ final class NoteListViewModel: NoteListViewModelProtocol {
     private var viewContext: NSManagedObjectContext
     
     @Published var notes: [Note] = [Note]()
+
+    @Published var favoritesNotes: [Note] = [Note]()
     
     let api: NotesAPIProtocol
     
     init(api: NotesAPIProtocol = NotesAPI(), viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
         self.api = api
+    }
+
+    func insert(note: Note) {
+        if !favoritesNotes.contains(note) {
+            favoritesNotes.append(note)
+        }
     }
     
     func listNotes(completion: (() -> Void)?) {
