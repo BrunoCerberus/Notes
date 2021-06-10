@@ -9,9 +9,11 @@ import SwiftUI
 
 struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
     @ObservedObject var viewModel: T
+
     @State private var isShowingAlert: Bool = false
     @State private var titleAlertInput: String = ""
     @State private var contentAlertInput: String = ""
+    @State private var isPresented: Bool = false
     
     var body: some View {
         NavigationView {
@@ -20,46 +22,63 @@ struct NoteListViewModelView<T>: View where T: NoteListViewModelProtocol {
                     PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                         viewModel.listNotes(completion: nil)
                     }
+
+                    VStack {
+                        Button(action: { isPresented.toggle() }) {
+                            Text("Favoritos")
+                        }
+                    }
+
                     List {
                         ForEach(viewModel.notes, id: \.id) { note in
-                            NoteRowView(note: note)
+                            NavigationLink(
+                                destination: NoteViewDetails(note: note),
+                                label: {
+                                    NoteRowView(note: note)
+                                })
+//                                .onTapGesture {
+//                                    print(note)
+//                                    self.insert(note: note)
+//                                }textFieldAlert
                         }
                         .onDelete(perform: delete)
                     }
                     .navigationTitle("Notes")
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
-                            Button(action: {
-                                withAnimation {
-                                    titleAlertInput = ""
-                                    contentAlertInput = ""
-                                    self.isShowingAlert.toggle()
-                                }
-                            }) {
-                                Text("Add")
-                            }
+                            NavigationLink(
+                                destination: NoteViewDetails(),
+                                label: {
+                                    Text("Add")
+                                })
                         }
-                    }.frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                }.coordinateSpace(name: "pullToRefresh")
+                    }
+                    .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                }
+                .coordinateSpace(name: "pullToRefresh")
             }
-        }.textFieldAlert(isShowing: $isShowingAlert,
-                         titleTextField: $titleAlertInput,
-                         descriptionTextField: $contentAlertInput,
-                         title: "Note title",
-                         contentTitle: "Content",
-                         viewModel: viewModel as! NoteListViewModel)
-        
+        }
         .onAppear() {
             viewModel.listNotes(completion: nil)
         }
+        .sheet(isPresented: $isPresented, content: {
+            VStack {
+                Text("Favoritos")
+                List {
+                    ForEach(viewModel.favoritesNotes, id: \.id) { note in
+                        NoteRowView(note: note)
+                    }
+                }
+            }
+        })
     }
     
     private func delete(offsets: IndexSet) {
         viewModel.delete(at: offsets, completion: nil)
     }
     
-    private func safeCast(viewModel: T) -> NoteListViewModel {
-        return viewModel as! NoteListViewModel
+    private func insert(note: Note) {
+        viewModel.insert(note: note)
     }
 }
 
